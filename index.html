@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="angularTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Password Checker</title>
+      <!-- angularjs -->
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+     <!-- ngRoute routing module from angular -->
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+
+     <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>test</h1>
+    <div class="" ng-controller="IndexController as indexCtrl">
+      <form class="form-horizontal" ng-submit="indexCtrl.checkPassword()">
+        <fieldset>
+          <label class="form-group">
+            <input type="radio" name="charLength" ng-model="indexCtrl.charLength"> 8 or more characters
+          </label> <br>
+          <label class="form-group">
+            <input type="radio" name="number" ng-model="indexCtrl.oneNumber"> At least one number
+          </label> <br>
+          <label class="form-group">
+            <input type="radio" name="uppercase" ng-model="indexCtrl.upperCase"> At least one upper case character
+          </label> <br>
+          <label class="form-group">
+            <input type="radio" name="lowercase" ng-model="indexCtrl.lowerCase"> At least one lower case character
+          </label> <br>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Password</label>
+            <div class="col-md-4">
+              <input id="password" ng-model="indexCtrl.password" type="text" class="form-control input-md" required ng-minlength="8">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Password Confirmation</label>
+            <div class="col-md-4 confirm">
+              <input id="passwordConfirm" ng-model="indexCtrl.passwordConfirm" type="text" class="form-control input-md" wj-validation-error="password != passwordConfirm ? 'Passwords don\'t match' : ''" >
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
